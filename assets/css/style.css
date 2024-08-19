@@ -1,0 +1,283 @@
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+html::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+html::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+/* ************************************* 
+* Bagian Navbar  
+*****************************************/
+.wrap-nav {
+position: fixed;
+height: auto;
+width: 100%;
+background-color: rgba(162, 60, 177, 0.9);
+top: 0;
+left: 0;
+z-index: 2;
+transition: 0.7s;
+}
+.toggler {
+position: absolute;
+top: 0.5rem;
+right: 10.5%;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+opacity: 0;
+z-index: 3;
+cursor: pointer;
+}
+.hamburger {
+position: absolute;
+top: 0.5rem;
+right: 10.5%;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: rgba(162, 60, 177, 0.9);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2;
+}
+.hamburger div {
+transition: 0.6s;
+position: absolute;
+width: 60%;
+height: 3px;
+border-radius: 1.5px;
+background-color: #fff;
+}
+.hamburger div:before,
+.hamburger div:after {
+content: "";
+position: absolute;
+width: 100%;
+height: 3px;
+border-radius: 1.5px;
+background: #fff;
+}
+.hamburger div:before {
+top: -10px;
+}
+.hamburger div:after {
+top: 10px;
+}
+.toggler:checked + .hamburger > div {
+transform: rotate(135deg);
+}
+.toggler:checked:hover + .hamburger > div {
+transform: rotate(225deg);
+}
+.toggler:checked + .hamburger div:before,
+.toggler:checked + .hamburger div:after {
+transform: rotate(90deg);
+top: 0;
+}
+.toggler:checked ~ .menu-links {
+visibility: visible;
+}
+.toggler:checked ~ .menu-links div {
+transform: translateX(0%);
+right: 0;
+}
+nav {
+height: 80px;
+width: 80%;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.logo {
+height: 40px;
+width: 40px;
+}
+.logo img {
+height: 100%;
+}
+.menu-links {
+position: fixed;
+width: 100vw;
+height: 100vh;
+top: 0;
+left: 0;
+visibility: hidden;
+}
+
+.menu-links div {
+position: absolute;
+width: 100%;
+height: 100%;
+border-radius: 0%;
+top: 0;
+right: -100%;
+scale: 1;
+background: rgba(207, 36, 210, 0.9);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+transform: translateX(150%);
+transition: 0.6s;
+}
+.menu-link {
+list-style: none;
+}
+.menu-link a {
+color: white;
+text-decoration: none;
+font-size: 2rem;
+}
+@media only screen and (min-width: 769px) {
+.toggler {
+display: none;
+}
+.hamburger {
+display: none;
+}
+.menu-links {
+visibility: visible;
+height: fit-content;
+}
+.menu-links div {
+transform: translateX(0%);
+right: 12.5%;
+top: 25px;
+background: rgba(0, 0, 0, 0);
+width: fit-content;
+height: fit-content;
+flex-direction: row;
+}
+.menu-links a {
+margin: 0 1.5rem;
+font-size: 1.1rem;
+}
+}
+#footer {
+    line-height: 200%;
+    position: fixed;
+    width: 100%;
+    background-color: #34343a;
+    bottom: 0;  
+    left: 0;
+    text-align: center;
+    color: #ededed;
+    padding: 5px 10px 5px 10px;
+    margin: 0 0 0 0;
+    overflow: hidden;
+}
+#footer a {
+    text-decoration: none;
+    color: #ffa600;
+}
+
+body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",sans-serif;
+    margin: 0;
+    padding-top: 7rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    background-color: #FCF2FF;
+    background-image: url(/assets/img/Vector\ 1.svg);
+    background-repeat: repeat-x;
+    background-position-y: -10rem;
+    color: white;
+    padding-bottom: 5rem;
+}
+
+#textInput {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",sans-serif;
+    width: 100%;
+    height: 19rem;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px auto 40px;
+    display: block;
+}
+
+h1 {
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem rgb(0, 0, 0));
+    color: #ffffff;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#analyzeButton {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #32d9ff;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#outputSection {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+grid-gap: 20px; /* Space between columns */
+}
+
+
+.alliteration-group {
+border: 1px solid #ca6eff;
+color: #34343a;
+padding: 20px;
+margin-bottom: 20px;
+background-color: #ffffff;
+border-radius: 5px;
+max-height: 200px; /* Adjust this value as needed */
+overflow-y: scroll;
+}
+
+.alliteration-group h2 {
+font-size: 1.2em;
+margin-bottom: 10px;
+color: #333;
+}
+
+.alliteration-pair {
+margin-bottom: 5px;
+}
+.alliteration-group::-webkit-scrollbar {
+width: 6px;
+}
+
+.alliteration-group::-webkit-scrollbar-thumb {
+background-color: #ccc; /* Adjust color as needed */
+border-radius: 3px;
+}
+
+.alliteration-group::-webkit-scrollbar-track {
+background-color: transparent;
+}
+
+#downloadSection {
+    margin-top: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 3rem;
+}
