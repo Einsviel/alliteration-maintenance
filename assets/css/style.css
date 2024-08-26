@@ -1,4 +1,6 @@
-
+/* ************************************* 
+* HTML 
+*****************************************/
 html::-webkit-scrollbar {
     width: 10px;
 }
@@ -16,7 +18,7 @@ html::-webkit-scrollbar-track {
 position: fixed;
 height: auto;
 width: 100%;
-background-color: rgba(162, 60, 177, 0.9);
+background-color: rgb(161, 60, 177);
 top: 0;
 left: 0;
 z-index: 2;
@@ -32,6 +34,9 @@ border-radius: 50%;
 opacity: 0;
 z-index: 3;
 cursor: pointer;
+}
+.home a{
+    text-decoration: none;
 }
 .hamburger {
 position: absolute;
@@ -160,24 +165,20 @@ margin: 0 1.5rem;
 font-size: 1.1rem;
 }
 }
+/* ************************************* 
+* Bagian link gwej
+*****************************************/
 #footer {
-    line-height: 200%;
-    position: fixed;
-    width: 100%;
-    background-color: #34343a;
-    bottom: 0;  
-    left: 0;
-    text-align: center;
-    color: #ededed;
-    padding: 5px 10px 5px 10px;
-    margin: 0 0 0 0;
-    overflow: hidden;
+   text-decoration: none;
+   font-size: 1rem;
 }
 #footer a {
     text-decoration: none;
     color: #ffa600;
 }
-
+/* ************************************* 
+* Body
+*****************************************/
 body {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",sans-serif;
     margin: 0;
@@ -185,7 +186,7 @@ body {
     padding-left: 5rem;
     padding-right: 5rem;
     background-color: #FCF2FF;
-    background-image: url(/assets/img/Vector\ 1.svg);
+    background-image: url(/assets/img/main-background.svg);
     background-repeat: repeat-x;
     background-position-y: -10rem;
     color: white;
@@ -210,7 +211,9 @@ h1 {
     text-align: left;
     margin-top: 20px;
 }
-
+/* ************************************* 
+* Bagian Home 
+*****************************************/
 #analyzeButton {
     display: block;
     margin-left: 0;
@@ -280,4 +283,26 @@ background-color: transparent;
     cursor: pointer;
     font-size: 14px;
     margin-bottom: 3rem;
+}
+/* ************************************* 
+* Bagian About
+*****************************************/
+.about {
+    text-decoration: none;
+    padding: 0rem 2rem 0rem 2rem;
+}
+.about h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.about h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+}
+/* ************************************* 
+* Bagian Contact
+*****************************************/
+.contact img {
+width: 15rem;
+height: 25rem;
 }
