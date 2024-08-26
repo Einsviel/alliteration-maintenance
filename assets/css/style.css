@@ -1,16 +1,21 @@
 /* ************************************* 
 * HTML 
 *****************************************/
-html::-webkit-scrollbar {
-    width: 10px;
-}
-html::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 3px;
-}
-html::-webkit-scrollbar-track {
-    background-color: transparent;
-}
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust the width as needed */
+    background-color: transparent; /* Set the background color to match your content */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Adjust the thumb color as needed */
+    border-radius: 3px; /* Round the corners of the thumb */
+    border: 2px solid transparent; /* Add a border to create a subtle outline */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /* Make the track transparent */
+  }
 /* ************************************* 
 * Bagian Navbar  
 *****************************************/
@@ -302,7 +307,35 @@ background-color: transparent;
 /* ************************************* 
 * Bagian Contact
 *****************************************/
+.contact {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+}
+.contact a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #2a2a2a;
+}
+.contact > div {
+    padding: 0.5rem;
+    margin: 20px;
+    align-self: center;
+}
 .contact img {
-width: 15rem;
-height: 25rem;
+width: 30vw;
+align-content: center;
+position: center;
+}
+div.polaroid {
+    width: fit-content;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+div.container {
+    text-align: center;
+    padding: 10px 20px;
+    color: black;
 }
