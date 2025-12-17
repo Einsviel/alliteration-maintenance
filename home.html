@@ -14,6 +14,10 @@
 </head>
 
 <body>
+  <div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.9); z-index: 9999; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="loader"></div>
+    <p style="color: #a13cb1; font-weight: bold; margin-top: 15px;">Analyzing Alliteration...</p>
+</div>
        <!-- Navigasi -->
        <div class="wrap-nav" id="navbar">
         <nav>
@@ -36,6 +40,13 @@
         <input type="file" id="fileInput" accept=".txt,.docx,.pdf">
     <textarea id="textInput" rows="10" cols="50" placeholder="Or enter text here..."></textarea>
     <button id="analyzeButton">Analyze</button>
+<div id="outputSection"></div>
+
+<div id="generationSection" style="display: none; margin-top: 20px;">
+    <p style="color: #34343a; font-weight: bold;">Analysis complete! Click below to prepare your files:</p>
+    <button id="generateFilesButton" class="download-button" style="background-color: #a13cb1;">Generate Download Links</button>
+</div>
+<div id="downloadSection"></div>
     <div id="outputSection"></div>
     <div id="downloadSection"></div>
     <script>
