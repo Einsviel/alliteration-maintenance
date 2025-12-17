@@ -9,6 +9,8 @@
     <script type="module" src="assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
     <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
 
 <body>
@@ -29,12 +31,10 @@
           </ul>
         </nav>
       </div>
-    <textarea
-        id="textInput"
-        rows="10"
-        cols="50"
-        placeholder="Enter text here..."
-    ></textarea>
+      <div style="margin: 10px 0;">
+        <label for="fileInput" style="color: #34343a; font-weight: bold;">Upload .txt, .docx, or .pdf: </label>
+        <input type="file" id="fileInput" accept=".txt,.docx,.pdf">
+    <textarea id="textInput" rows="10" cols="50" placeholder="Or enter text here..."></textarea>
     <button id="analyzeButton">Analyze</button>
     <div id="outputSection"></div>
     <div id="downloadSection"></div>

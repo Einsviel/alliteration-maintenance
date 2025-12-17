@@ -227,3 +227,63 @@ Z: '#9400D3', // Light Purple
 
 return colorMap[groupKey.toUpperCase()] || '#808080'; // Default to mid-gray if key not found
 }
+
+// File uploads
+// assets/js/script.js
+const fileInput = document.getElementById("fileInput");
+
+// Initialize PDF.js worker
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+fileInput.addEventListener("change", async function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const fileName = file.name.toLowerCase();
+    let extractedText = "";
+
+    if (fileName.endsWith(".txt")) {
+        const reader = new FileReader();
+        reader.onload = (e) => startAnalysis(e.target.result);
+        reader.readAsText(file);
+    } 
+    else if (fileName.endsWith(".docx")) {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            const arrayBuffer = e.target.result;
+            // Use Mammoth to extract raw text from docx
+            const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+            startAnalysis(result.value);
+        };
+        reader.readAsArrayBuffer(file);
+    } 
+    else if (fileName.endsWith(".pdf")) {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            const typedarray = new Uint8Array(e.target.result);
+            // Use PDF.js to load and parse the PDF
+            const pdf = await pdfjsLib.getDocument(typedarray).promise;
+            let fullText = "";
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                // Join text items from each page
+                fullText += content.items.map(item => item.str).join(" ") + "\n";
+            }
+            startAnalysis(fullText);
+        };
+        reader.readAsArrayBuffer(file);
+    }
+});
+
+// Helper function to trigger your existing analysis logic
+function startAnalysis(text) {
+    inputText = text;
+    textInput.value = ""; // Clear box as requested
+    
+    if (inputText.trim() !== "") {
+        alliterationPairs = detectAlliteration(inputText);
+        displayAlliterationGroups(alliterationPairs);
+        displayDownloadLinks(alliterationPairs, inputText);
+    }
+}
